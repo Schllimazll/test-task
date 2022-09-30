@@ -1,0 +1,503 @@
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+textarea {
+  white-space: revert;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+@font-face {
+  font-family: GHEA Grapalat;
+  font-display: swap;
+  src: url("../fonts/gheagrapalat.woff2") format("woff2"), url("../fonts/gheagrapalat.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: GHEA Mariam;
+  font-display: swap;
+  src: url("../fonts/GHEAMariam.woff2") format("woff2"), url("../fonts/GHEAMariam.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 90px;
+}
+
+.main-links__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.link {
+  display: inline-block;
+  margin: 30px;
+  padding: 30px;
+  background-color: #21354b;
+  border-radius: 30px;
+  font-family: "GHEA Mariam";
+  font-size: 25px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.back {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.form {
+  background-color: #21354b;
+  padding-top: 56px;
+  padding-bottom: 90px;
+}
+
+.form__r-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.form__r-1-c-1 {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  padding-right: 20px;
+}
+
+.form__r-1-c-2 {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  -webkit-transform: translate(-2.6%, 0);
+      -ms-transform: translate(-2.6%, 0);
+          transform: translate(-2.6%, 0);
+}
+
+.form__r-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 157px;
+}
+
+.form__title {
+  font-family: "GHEA Mariam";
+  font-size: 66px;
+  line-height: 110%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #eeebe6;
+  margin-bottom: 64px;
+}
+
+.form__txt {
+  font-family: "GHEA Grapalat";
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #eeebe6;
+  margin-bottom: 97px;
+}
+
+.form__input-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form__label {
+  font-family: "GHEA Grapalat";
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #eeebe6;
+  margin-bottom: 5px;
+}
+
+.form__input-txt {
+  font-family: "GHEA Grapalat";
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  color: #eeebe6;
+  border: none;
+  outline: none;
+  background: none;
+  max-width: 538px;
+  border-bottom: 1px solid rgba(238, 235, 230, 0.5);
+  margin-bottom: 51px;
+}
+
+.form__input-range-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 31px;
+}
+
+.form__input-range {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 1px;
+  width: 100%;
+  max-width: 538px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #ff69b4), color-stop(50%, #5baaf9));
+  background: -o-linear-gradient(left, #ff69b4 50%, #5baaf9 50%);
+  background: linear-gradient(90deg, #ff69b4 50%, #5baaf9 50%);
+  border: none;
+  outline: none;
+}
+
+.form__input-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -14px;
+  -webkit-transform: translate(0, 7px);
+          transform: translate(0, 7px);
+  background: #b6a16b;
+  border-radius: 13px;
+  border: 1px solid #b6a16b;
+  cursor: pointer;
+}
+
+.form__input-range::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -14px;
+  transform: translate(0, 7px);
+  background: #b6a16b;
+  border-radius: 13px;
+  border: 1px solid #b6a16b;
+  cursor: pointer;
+}
+
+.form__input-range::-ms-thumb {
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -14px;
+  -ms-transform: translate(0, 7px);
+      transform: translate(0, 7px);
+  background: #b6a16b;
+  border-radius: 13px;
+  border: 1px solid #b6a16b;
+  cursor: pointer;
+}
+
+.form__input-range-value-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 538px;
+}
+
+.form__input-range-value {
+  font-family: "GHEA Grapalat";
+  font-size: 9px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #eeebe6;
+  margin-top: 6px;
+}
+
+.form__input--error {
+  border-bottom: 1px solid red;
+}
+
+.form__submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 136px;
+}
+
+.form__submit-btn {
+  font-family: "GHEA Grapalat";
+  font-size: 12px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #eeebe6;
+  max-width: 173px;
+  width: 100%;
+  background: transparent;
+  border: 1px solid #eeebe6;
+  border-radius: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+  margin-right: 72px;
+}
+
+.form__submit-txt {
+  font-family: "GHEA Grapalat";
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #eeebe6;
+}
+
+.form__submit-link {
+  color: rgb(255, 105, 180);
+  text-decoration: underline;
+}
+
+.form__copyright {
+  font-family: "GHEA Grapalat";
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ff69b4;
+  margin-right: 208px;
+}
+
+.form__privacy {
+  font-family: "GHEA Grapalat";
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #eeebe6;
+  text-decoration: none;
+}
+
+.logo {
+  opacity: 0.2;
+}
+
+.circle {
+  padding-top: 20px;
+}
+
+.circle__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.circle__diagram {
+  margin-right: 100px;
+}
+
+.circle__part--hidden {
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.circle__part:hover + .circle__part--hidden {
+  opacity: 1;
+}
+
+.circle__legend-part-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.circle__legend-img {
+  margin-right: 13px;
+}
+
+.circle__legend-part {
+  font-family: "GHEA Grapalat";
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #000000;
+  opacity: 0.6;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0 45px;
+  }
+
+  .form__r-1 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .form__r-1-c-1 {
+    -ms-flex-preferred-size: fill;
+        flex-basis: fill;
+    padding-right: 0px;
+  }
+
+  .form__r-1-c-2 {
+    -ms-flex-preferred-size: fill;
+        flex-basis: fill;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+    margin: 0 auto;
+  }
+
+  .form__submit {
+    margin-top: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .form__submit-btn {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .logo {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form__r-2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .form__title {
+    font-size: 36px;
+  }
+
+  .form__copyright {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .wrapper {
+    padding: 0 15px;
+  }
+}

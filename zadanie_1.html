@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>Тестовое задание</title>
+</head>
+
+
+  <body>
+    <div class="page-wrapper">
+      <main>
+        <section class="form">
+          <div class="wrapper">
+            <div class="form__inner">
+              <div class="form__r-1">
+                <div class="form__r-1-c-1">
+                  <h1 class="form__title">
+                    SEND <br />
+                    A REQUEST
+                  </h1>
+                  <p class="form__txt">
+                    Leave your contacts and we will contact you as soon as
+                    possible
+                  </p>
+                  <img class="logo" src="img/logo.svg" alt="Logo" />
+                </div>
+                <div class="form__r-1-c-2">
+                  <form class="form__input-body" action="" novalidate>
+                    <label class="form__label" for="input-name">Name</label>
+                    <input
+                      class="form__input-txt"
+                      id="input-name"
+                      name="name"
+                      type="text"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="form__label"
+                      id="input-phone-label"
+                      for="input-phone"
+                      >Phone</label
+                    >
+                    <input
+                      class="form__input-txt"
+                      id="input-phone"
+                      name="phone"
+                      type="text"
+                      autocomplete="off"
+                    />
+                    <div class="form__input-range-body">
+                      <label class="form__label" for="input-temp">Temp</label>
+                      <input
+                        class="form__input-range"
+                        id="input-temp"
+                        name="temp"
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="50"
+                        step="1"
+                        oninput="rangeChange()"
+                      />
+                      <div class="form__input-range-value-body">
+                        <span class="form__input-range-value">Hot</span>
+                        <span class="form__input-range-value">Cold</span>
+                      </div>
+                    </div>
+                    <label class="form__label" for="input-comments"
+                      >Comments</label
+                    >
+                    <input
+                      class="form__input-txt"
+                      id="input-comments"
+                      name="comments"
+                      type="text"
+                      autocomplete="off"
+                    />
+                    <div class="form__submit">
+                      <button class="form__submit-btn" type="submit">
+                        call me
+                      </button>
+                      <p class="form__submit-txt">
+                        By pressing “Send” button<br />I agree with
+                        <a class="form__submit-link" href="#">Privacy Policy</a>
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="form__r-2">
+                <p class="form__copyright">© 2022 LUXURY RESIDENCE</p>
+                <a class="form__privacy" href="#">Privacy Policy</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="back">
+          <a class="link" href="index.html">На главную</a>
+        </div>
+      </main>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
